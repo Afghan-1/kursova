@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="kyrsova.airlinesForm">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>QCQAIBAAICAAAACdAICAIABCAcw7AAAA0HKPAQABQKA=</HashCode>
+      <FileName>airlinesForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="kyrsova.clientForm">
+    <Position X="5.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>QCQCIBAAJSAhAACdEIiAIABCIcw7EAAA0HKPAQABQKA=</HashCode>
+      <FileName>clientForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="kyrsova.DB">
+    <Position X="2.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAABAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DB.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="kyrsova.hotelsForm">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>QCQAIBAAICAAAACdAICAIABCAcw7AAAA0HKPAQABQKA=</HashCode>
+      <FileName>hotelsForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="kyrsova.LoginForm">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="kyrsova.LoginForm.User" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>LoginForm.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>ACAIIBQIgCAAAFAAAAiAQAASAAAAQAAAAAAAAQDAAAA=</HashCode>
+      <FileName>LoginForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="kyrsova.MainForm">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>SCQCIBAAJSAhAACdFIiAIIBCIcw7EAAg0HKfQQARQKA=</HashCode>
+      <FileName>MainForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="kyrsova.Program">
+    <Position X="7.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="kyrsova.RegisterForm">
+    <Position X="2.25" Y="4.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AGAAIBQAkCAAAFAAAAiAABACACAAQAAAAAAAgwDAAAE=</HashCode>
+      <FileName>RegisterForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="kyrsova.reservForm">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>QCQCIBAAJSABAACdEIiAIABCIcw7EAAA0HKPAQABQKA=</HashCode>
+      <FileName>reservForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="kyrsova.workersForm">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>QCQCIBAAJSABAACdEIiAIABCIcw7EAAA0HKPAQABQKA=</HashCode>
+      <FileName>workersForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="kyrsova.Properties.Resources">
+    <Position X="0.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACABAAAAAAAgAAABEEAAAQAABAAAAAAAAAAAAYA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="kyrsova.Properties.Settings">
+    <Position X="7.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
