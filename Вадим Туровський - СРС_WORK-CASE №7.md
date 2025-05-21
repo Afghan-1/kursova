@@ -1,160 +1,137 @@
-**1\. Планування задач в ОС:**
+**1. В ході роботи досить часто виникає завдання планування задач:**
 
-* **Основні функції планувальника завдань:**
+  * **Main functions of a task scheduler:**
 
-  * **Автоматизація виконання:** Запуск програм, скриптів або команд у визначений час або за певних подій без втручання користувача.  
-  * **Періодичне виконання:** Запуск задач через задані інтервали (хвилини, години, дні, тижні, місяці).  
-  * **Виконання за розкладом:** Запуск задач у конкретний час та дату.  
-  * **Виконання за подіями:** Запуск задач у відповідь на певні системні події (наприклад, запуск системи, вхід/вихід користувача).  
-  * **Керування виконанням:** Можливість перегляду запланованих задач, їхнього статусу, історії виконання, а також редагування та видалення.  
-* **Порівняння планування завдань у Windows та Linux:**
+      * **Automation of execution:** Launching programs, scripts, or commands at a specific time or upon certain events without user intervention.
+      * **Periodic execution:** Running tasks at defined intervals (minutes, hours, days, weeks, months).
+      * **Scheduled execution:** Running tasks at a specific time and date.
+      * **Event-driven execution:** Running tasks in response to certain system events (e.g., system startup, user login/logout).
+      * **Execution management:** Ability to view scheduled tasks, their status, execution history, as well as editing and deleting them.
 
-   | Характеристика | Windows Task Scheduler \- **Інтерфейс:** Windows Task Scheduler має графічний інтерфейс користувача (GUI), що робить його більш інтуїтивно зрозумілим для початківців. Cron у Linux в основному використовується через текстову конфігурацію.
+  * **Comparison of task scheduling in Windows and Linux:**
 
+      * **Flexibility of triggers:** Windows Task Scheduler offers a wider range of triggers, including not only time and date but also system events such as program startup, log events, user inactivity time, etc. Cron in Linux is more focused on time-based triggers.
+      * **Task management:** Both systems provide capabilities for managing scheduled tasks (viewing, editing, deleting, manual execution). Windows Task Scheduler can provide detailed information about the execution status of tasks.
+      * **Extensibility:** In Linux, in addition to Cron, there are other schedulers such as systemd Timers, which are integrated with systemd and offer more advanced features similar to Windows Task Scheduler triggers.
 
+  * **Basic principles of working with the Cron scheduler in Linux OS:**
 
-* **Гнучкість тригерів:** Windows Task Scheduler пропонує ширший спектр тригерів, включаючи не тільки час та дату, але й системні події, такі як запуск програми, події журналу, час бездіяльності користувача тощо. Cron в Linux більше орієнтований на часові тригери.  
-* **Керування задачами:** Обидві системи надають можливості для керування запланованими задачами (перегляд, редагування, видалення, запуск вручну). Windows Task Scheduler може надавати детальну інформацію про стан виконання задач.  
-* **Розширеність:** В Linux, крім Cron, існують й інші планувальники, такі як systemd Timers, які інтегровані з systemd та пропонують більш розширені можливості, подібні до тригерів Windows Task Scheduler.
+    Cron uses a configuration file called "crontab" (cron table) to store a list of scheduled tasks and their execution times. Each user can have their own crontab, and there is also a system crontab (usually located in `/etc/crontab`).
 
+    A line in crontab consists of six fields separated by spaces or tabs:
 
+    ```
+    minute hour day_of_month month day_of_week command
+    ```
 
-* **Основні принципи роботи з планувальником Cron в ОС Linux:**
+    Where:
 
-   Cron використовує файл конфігурації, який називається "crontab" (cron table), для зберігання списку запланованих задач та часу їхнього виконання. Кожен користувач може мати свій власний crontab, а також існує системний crontab (зазвичай розташований у /etc/crontab).
+      * minute: Minute (0-59)
+      * hour: Hour (0-23)
+      * day\_of\_month: Day of the month (1-31)
+      * month: Month (1-12 or month names)
+      * day\_of\_week: Day of the week (0-6 or day names, 0 = Sunday)
+      * command: Command or script to execute
 
-   Рядок у crontab складається з шести полів, розділених пробілами або табуляцією:
+  * **Cron Configuration:**
 
-minute hour day\_of\_month month day\_of\_week command
+      * **Editing crontab:** To edit your own crontab, use the command:
 
- 
-* Де:
+        ```bash
+        crontab -e
+        ```
 
-  * minute: Хвилина (0-59)  
-  * hour: Година (0-23)  
-  * day\_of\_month: День місяця (1-31)  
-  * month: Місяць (1-12 або назви місяців)  
-  * day\_of\_week: День тижня (0-6 або назви днів, 0 \- неділя)  
-  * command: Команда або скрипт для виконання  
-* **Налаштування Cron:**
+        You will be opened in a text editor (usually nano or vi) where you can add or modify lines with task schedules.
 
-  * **Редагування crontab:** Для редагування власного crontab використовуйте команду:
+      * **Viewing crontab:** To view your current crontab, use the command:
 
-  * Bash
+        ```bash
+        crontab -l
+        ```
 
-crontab \-e
+      * **Deleting crontab:** To delete your crontab, use the command:
 
-*   
-  * Вам буде відкрито текстовий редактор (зазвичай nano або vi), де ви можете додавати або змінювати рядки з розкладом задач.
+        ```bash
+        crontab -r
+        ```
 
-  * **Перегляд crontab:** Щоб переглянути свій поточний crontab, використовуйте команду:
+  * **Alternatives to Cron in Linux:**
 
-  * Bash
+      * **at:** Allows you to schedule a one-time execution of a command at a specified time. For example:
 
-crontab \-l
+        ```bash
+        echo "shutdown -h now" | at 23:00
+        ```
 
-*   
-  *   
-  * **Видалення crontab:** Щоб видалити свій crontab, використовуйте команду:
+        Characteristic: Simple for one-off tasks, less convenient for periodic tasks.
 
-  * Bash
+      * **systemd Timers:** Are part of systemd and offer more flexible scheduling capabilities, similar to Windows Task Scheduler. Timers can be configured based on time, events (e.g., system boot, network status change), etc. Configuration is done through unit files (.timer and .service).
+        Characteristic: More powerful and integrated with the system, supports calendar events, startup events, dependencies. Can be more complex to configure for simple periodic tasks compared to Cron.
 
-crontab \-r
+      * **anacron:** Designed for systems that are not running 24/7. It runs scheduled jobs with a delay if the system was powered off at the scheduled time.
+        Characteristic: Ensures task execution even if the system was turned off, focused on daily, weekly, and monthly tasks.
 
-*   
-  *   
-* **Альтернативи Cron в Linux:**
+**2. Для вашої віртуальної машини зі встановленою ОС Linux здійсніть планування обраних вами задач (запуск додатків, вмикання/вимикання машини, очистка каталогів, видалення файлів, резервне копіювання, архівування тощо на ваш вибір) через планувальник Cron:**
 
-  * at**:** Дозволяє запланувати одноразове виконання команди у визначений час. Наприклад:
+Assuming you are using standard Cron. Edit your crontab using `crontab -e` and add the following lines (replace the commands with those you want to execute):
 
-  * Bash
+  * **Executing a task at a specific time (8 AM):**
 
-echo "shutdown \-h now" | at 23:00
+    ```
+    0 8 * * * echo "Running morning task" >> /home/your_user/cron.log
+    ```
 
-*   
-  * Характеристика: Простий для одноразових задач, менш зручний для періодичних завдань.
+  * **Executing a task at 6:30 PM:**
 
-  * systemd Timers: Є частиною systemd і пропонує більш гнучкі можливості планування, подібні до Windows Task Scheduler. Таймери можуть бути налаштовані на основі часу, подій (наприклад, завантаження системи, зміна стану мережі) тощо. Налаштування здійснюється через файли юнітів (.timer та .service).  
-    Характеристика: Більш потужний та інтегрований з системою, підтримує календарні події, події запуску, залежності. Може бути складнішим у налаштуванні для простих періодичних задач порівняно з Cron.
+    ```
+    30 18 * * * echo "Running evening task" >> /home/your_user/cron.log
+    ```
 
-  * anacron: Призначений для систем, які не працюють цілодобово. Він запускає заплановані завдання з затримкою, якщо система була вимкнена в запланований час.  
-    Характеристика: Гарантує виконання задач, навіть якщо система була вимкнена, орієнтований на щоденні, щотижневі та щомісячні завдання.
+  * **Executing the same task twice a day (9:00 AM and 3:00 PM):**
 
-**2\. Планування задач через Cron на віртуальній машині Linux:**
+    ```
+    0 9,15 * * * echo "Running task twice a day" >> /home/your_user/cron.log
+    ```
 
-Припустимо, ви використовуєте стандартний Cron. Відредагуйте свій crontab за допомогою crontab \-e та додайте наступні рядки (замініть команди на ті, що ви хочете виконувати):
+  * **Executing a task only on weekdays (from 8 AM to 6 PM, for example at 12:00 PM):**
 
-* **Виконання задачі в чітко визначений час (о 8 ранку):**
+    ```
+    0 12 * * 1-5 echo "Running weekday task" >> /home/your_user/cron.log
+    ```
 
-* Фрагмент коду
+  * **Executing tasks:**
 
-0 8 \* \* \* echo "Запуск ранкової задачі" \>\> /home/your\_user/cron.log
+      * **Once a year (January 1st at 00:00):**
 
-*   
-*   
-* **Виконання задачі о 18:30:**
+        ```
+        0 0 1 1 * echo "Annual task" >> /home/your_user/cron.log
+        ```
 
-* Фрагмент коду
+      * **Once a month (on the 1st at 01:00):**
 
-30 18 \* \* \* echo "Запуск вечірньої задачі" \>\> /home/your\_user/cron.log
+        ```
+        0 1 1 * * echo "Monthly task" >> /home/your_user/cron.log
+        ```
 
-*   
-*   
-* **Виконання однієї й тієї ж задачі двічі на день (9:00 та 15:00):**
+      * **Once a day (at 02:00):**
 
-* Фрагмент коду
+        ```
+        0 2 * * * echo "Daily task" >> /home/your_user/cron.log
+        ```
 
-0 9,15 \* \* \* echo "Запуск задачі двічі на день" \>\> /home/your\_user/cron.log
+      * **Every hour (at the beginning of each hour):**
 
-*   
-*   
-* **Виконання задачі тільки в будні (з 8 до 18 години, наприклад о 12:00):**
+        ```
+        0 * * * * echo "Hourly task" >> /home/your_user/cron.log
+        ```
 
-* Фрагмент коду
+      * **On startup (after reboot) - using `@reboot`:**
 
-0 12 \* \* 1-5 echo "Запуск задачі в будні" \>\> /home/your\_user/cron.log
+        ```
+        @reboot echo "Task after reboot" >> /home/your_user/reboot.log
+        ```
 
-*   
-*   
-* **Виконання задач:**
-
-  * **Раз на рік (1 січня о 00:00):**  
-  * Фрагмент коду
-
-0 0 1 1 \* echo "Річна задача" \>\> /home/your\_user/cron.log
-
-*   
-  *   
-  * **Раз на місяць (1 числа о 01:00):**  
-  * Фрагмент коду
-
-0 1 1 \* \* echo "Щомісячна задача" \>\> /home/your\_user/cron.log
-
-*   
-  *   
-  * **Раз на день (о 02:00):**  
-  * Фрагмент коду
-
-0 2 \* \* \* echo "Щоденна задача" \>\> /home/your\_user/cron.log
-
-*   
-  *   
-  * **Щогодини (на початку кожної години):**  
-  * Фрагмент коду
-
-0 \* \* \* \* echo "Щогодинна задача" \>\> /home/your\_user/cron.log
-
-*   
-  *   
-  * **При вмиканні (після перезавантаження) \- через** @reboot**:**  
-  * Фрагмент коду
-
-@reboot echo "Задача після перезавантаження" \>\> /home/your\_user/reboot.log
-
-*   
-  * 
-
-**Тільки потрібно замінити** echo "..." \>\> ...log на реальні команди, які ви хочете запланувати (наприклад, запуск програми, скрипту резервного копіювання тощо). 
+Just remember to replace `echo "..." >> ...log` with the actual commands you want to schedule (e.g., running a program, a backup script, etc.).
 
 **3\. Встановіть альтернативний Cron’у планувальник задач (на Ваш вибір). Виконані у завданні 2 дії продемонструйте через нього.** 
 
